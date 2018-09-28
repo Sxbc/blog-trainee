@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aasm (5.0.1)
+      concurrent-ruby (~> 1.0)
     actionmailer (4.2.10)
       actionpack (= 4.2.10)
       actionview (= 4.2.10)
@@ -41,6 +43,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.3.0)
     coderay (1.1.2)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -187,7 +190,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm
   byebug
+  cancancan (~> 2.0)
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
