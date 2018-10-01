@@ -6,11 +6,11 @@ class HomeController < ApplicationController
 
   def special_dashboard
     if current_user.role == "admin"
-      @posts = Post.all
+      @posts = Post.all.order('created_at DESC')
     elsif current_user.role == "reviewer"
-      @posts = Post.reviewing
+      @posts = Post.reviewing.order('created_at DESC')
     else
-      @posts = current_user.posts
+      @posts = current_user.posts.order('created_at DESC')
     end
   end
 end

@@ -1,13 +1,13 @@
+<%= link_to "Home", :root %>
 <% if flash[:success] %>
   <div class="success"><%= flash[:success] %></div>
 <%end%>
 <% @posts.each do |post| %>
   <ul>
     <li>
-      <%= post.title %>
+      <%= link_to post.title, post %>
     </li>
     <li>
-      <%= post.body %>
       <%- if current_user.role == "admin" %>
         <%= link_to "Revert", "/posts/#{post.id}/cancel", method: :put if post.aasm_state == "published" || post.aasm_state == "reviewing"%>
         <%= link_to "Publish", "/posts/#{post.id}/publish", method: :put if post.aasm_state == "reviewing"%>
@@ -21,4 +21,3 @@
     </li>
   </ul>
 <%end%>
-<%= link_to "Home", :root %>
