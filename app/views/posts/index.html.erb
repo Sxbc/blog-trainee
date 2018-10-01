@@ -1,10 +1,10 @@
 <% @posts.each do |post| %>
   <ul>
     <li>
-      <%= post.title %>
+      <%= link_to post.title, post %>
     </li>
     <li>
-      <%= post.body %>
+      <%= render_markdown(post.body) %>
     </li>
   </ul>
 <%end%>
