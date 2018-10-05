@@ -232,6 +232,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.6)
+    kramdown (1.17.0)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -364,6 +365,7 @@ DEPENDENCIES
   fog
   jbuilder (~> 2.0)
   jquery-rails
+  kramdown
   mini_magick
   pg (~> 0.18)
   pry

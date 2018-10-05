@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 gem 'rails', '4.2.10'
 gem 'pg', '~> 0.18'
 gem 'sass-rails', '~> 5.0'
@@ -13,6 +14,7 @@ gem 'devise'
 gem 'fog'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
+gem 'kramdown'
 
 group :development, :test do
   gem 'byebug'
