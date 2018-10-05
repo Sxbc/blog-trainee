@@ -16,7 +16,13 @@
 !/log/.keep
 /tmp
 
-
+# Ignore node_modules
 /node_modules
 
+# Ignore .swp files
 *.swp
+
+# Ignore Public directory
+/public/assets
+/public/uploads
+

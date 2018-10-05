@@ -1,28 +1,36 @@
-<%= form_for @post do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <%= pluralize(@post.errors.count, "error") %>
-      prohibited this article from beign saved:
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <%end%>
-      </ul>
+<div class="container">
+  <%= form_for @post, html: { multipart: true }  do |f| %>
+
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <%= pluralize(@post.errors.count, "error") %>
+        prohibited this article from beign saved:
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <%end%>
+        </ul>
+      </div>
+    <%end%>
+
+    <div class="title-field">
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Entitle me" %>
+    </div>
+    <div class="body-field">
+      <%= f.label :body %>
+      <%= f.text_area :body, placeholder: "Place your words here" %>
+    </div>
+    <div class="image-field">
+      <%= label_tag "image" %>
+      <%= file_field_tag "image"  %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create Post"%>
     </div>
   <%end%>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, placeholder: "Entitle me" %>
-  </div>
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body, placeholder: "Place your words here" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Create Post"%>
-  </div>
-<%end%>
 
-<button type="button" class="btn">
-  <%= link_to "Home", :root %>
-</button>
+  <button type="button" class="btn">
+    <%= link_to "Home", :root %>
+  </button>
+</div>

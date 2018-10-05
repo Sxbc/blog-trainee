@@ -6,8 +6,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.save
+      @post.images.create(image: params[:image])
       flash[:success] = "Post created"
-      redirect_to posts_path(@post)
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -17,10 +18,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def show
+    @post = Post.find params[:id]
+  end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(
+      :title,
+      :body,
+    )
   end
 end
