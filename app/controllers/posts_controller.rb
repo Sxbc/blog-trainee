@@ -8,8 +8,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     if @post.save
+      @post.images.create(image: params[:image])
       flash[:success] = "Post created"
-      redirect_to posts_path(@post)
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find params[:id]
   end
 
   def destroy
@@ -60,5 +62,4 @@ class PostsController < ApplicationController
       hard_wrap: false
     }
   end
-
 end

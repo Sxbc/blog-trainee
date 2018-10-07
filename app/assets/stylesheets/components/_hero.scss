@@ -1,0 +1,36 @@
+.hero-unit {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+
+  .hero-title {
+    background-color: black;
+    color:            white;
+    left:             50%;
+    margin:           0 auto;
+    padding:          10px;
+    position:         absolute;
+    text-align:       center;
+    top:              50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+  }
+
+  .hero-button {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 00%);
+    margin: 0 auto;
+    padding: 3px 10px;
+  }
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    max-height: 786px;
+  }
+}
+
