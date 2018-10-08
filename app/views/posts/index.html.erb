@@ -1,14 +1,10 @@
+<%= link_to "Home", :root %>
+
 <% @posts.each do |post| %>
   <ul>
     <li>
       <%= link_to post.title, post %>
     </li>
-    <li>
-      <%= render_markdown(post.body) %>
-    </li>
   </ul>
 <%end%>
 
-<button type="button" class="btn">
-  <%= link_to "Home", :root %>
-</button>

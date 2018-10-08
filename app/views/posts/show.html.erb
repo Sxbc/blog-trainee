@@ -1,3 +1,12 @@
+<%- if current_user.role == "admin" || current_user.role == "reviewer" %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+<%- elsif @post.aasm_state == "in_draft" %>
+  <%= link_to "Edit", edit_post_path(@post) %>
+<%end%>
+<%- if current_user.role == "admin" || current_user.role == "reviewer"%>
+  <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "You sure?" } %>
+<%end%>
+
 <% if @post.images.any? %>
 
   <div class="hero-unit">
@@ -15,9 +24,7 @@
 <%end%>
 
 <div class="post-body">
-  <%= @post.body %>
+  <%= render_markdown @post.body %>
 </div>
 
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "You sure?" } %>
 <%= link_to "Home", :root %>

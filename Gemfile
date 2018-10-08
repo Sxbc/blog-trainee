@@ -15,6 +15,8 @@ gem 'fog'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
 gem 'kramdown'
+gem 'cancancan', '~> 2.0'
+gem 'aasm'
 
 group :development, :test do
   gem 'byebug'
