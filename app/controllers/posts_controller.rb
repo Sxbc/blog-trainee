@@ -9,8 +9,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.create(post_params)
     if @post.save
+      @post.images.create(image: params[:image])
       flash[:success] = "Post created"
-      redirect_to posts_path(@post)
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -29,6 +30,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.published.order('created_at DESC')
+  end
+
+  def show
+    @post = Post.find params[:id]
   end
 
   def destroy

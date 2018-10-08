@@ -1,8 +1,3 @@
-<h1>waka</h1>
-<%= @post.title %>
-</br>
-<%= render_markdown @post.body %>
-</br>
 <%- if current_user.role == "admin" || current_user.role == "reviewer" %>
   <%= link_to "Edit", edit_post_path(@post) %>
 <%- elsif @post.aasm_state == "in_draft" %>
@@ -11,4 +6,25 @@
 <%- if current_user.role == "admin" || current_user.role == "reviewer"%>
   <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "You sure?" } %>
 <%end%>
+
+<% if @post.images.any? %>
+
+  <div class="hero-unit">
+    <div class="hero-title">
+      <%= @post.title %>
+      <div class="hero-button btn-default">
+        <%= link_to "Back to Posts", posts_path, method: :get %>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <%= image_tag @post.images.first.image_url %>
+    </div>
+  </div>
+<%end%>
+
+<div class="post-body">
+  <%= render_markdown @post.body %>
+</div>
+
 <%= link_to "Home", :root %>

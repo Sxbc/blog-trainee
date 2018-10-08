@@ -21,5 +21,8 @@ class Post < ActiveRecord::Base
   end
 
   belongs_to :user
-  validates :title, :body, presence: true
+  has_many   :images, dependent: :destroy
+  validates  :title, :body, presence: true
+  validates_associated  :images
+  accepts_nested_attributes_for :images
 end
