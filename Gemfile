@@ -17,12 +17,17 @@ gem 'carrierwave', '~> 1.0'
 gem 'kramdown'
 gem 'cancancan', '~> 2.0'
 gem 'aasm'
+gem 'friendly_id', '~> 5.2.0'
 
 group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'rspec', '~> 3.0'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'simplecov', require: false
+  gem 'factory_bot_rails'
+  gem 'rubocop', '~> 0.59.2', require: false
+  gem 'database_cleaner'
 end
 
 group :development do

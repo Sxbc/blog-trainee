@@ -1,11 +1,6 @@
 // New post form
-.container {
-  width: 100%;
+.container-fluid {
+  position: relative;
   margin: 10px;
   padding: 10px;
-
-  .title-field {
-    text-color: blue;
-    margin: 0 auto;
-  }
 }
