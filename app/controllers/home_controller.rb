@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   layout "landing"
   skip_before_action :authenticate_user!
   def welcome
+    @posts = Post.published.order('created_at DESC')
   end
 
   def special_dashboard

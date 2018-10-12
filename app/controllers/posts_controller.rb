@@ -17,8 +17,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -32,9 +31,7 @@ class PostsController < ApplicationController
     @posts = Post.published.order('created_at DESC')
   end
 
-  def show
-    @post = Post.find params[:id]
-  end
+  def show; end
 
   def destroy
     @post.destroy
@@ -70,12 +67,10 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find params[:id]
+    @post = Post.friendly.find params[:id]
   end
 
   def kramdown_options
-    {
-      hard_wrap: false
-    }
+    { hard_wrap: false }
   end
 end

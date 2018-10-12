@@ -13,7 +13,7 @@
     <div class="hero-title">
       <%= @post.title %>
       <div class="hero-button btn-default">
-        <%= link_to "Back to Posts", posts_path, method: :get %>
+        <%= link_to "Back to Home", :root %>
       </div>
     </div>
 
@@ -27,4 +27,3 @@
   <%= render_markdown @post.body %>
 </div>
 
-<%= link_to "Home", :root %>
